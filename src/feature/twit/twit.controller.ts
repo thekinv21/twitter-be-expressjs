@@ -1,5 +1,5 @@
-import { Request, Response, Router } from 'express'
 import { TwitService } from './twit.service'
+import { Request, Response, Router } from 'express'
 
 const router = Router()
 

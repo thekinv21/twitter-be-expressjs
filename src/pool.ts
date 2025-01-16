@@ -1,6 +1,6 @@
+import { IPgOption } from './shared'
 import * as dotenv from 'dotenv'
 import pg from 'pg'
-import { IPgOption } from './shared'
 
 dotenv.config()
 

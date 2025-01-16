@@ -1,11 +1,10 @@
+import { swaggerOptions } from './config'
+import { twitRouter } from './feature'
+import pool, { pgOptions } from './pool'
 import * as dotenv from 'dotenv'
 import express, { Express } from 'express'
 import swaggerJsdoc from 'swagger-jsdoc'
 import swaggerUi from 'swagger-ui-express'
-import { swaggerOptions } from './config'
-import { twitRouter } from './feature'
-
-import pool, { pgOptions } from './pool'
 
 const app: Express = express()
 const port = process.env.PORT || 4200
