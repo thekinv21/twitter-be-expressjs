@@ -5,7 +5,10 @@
 	"scripts": {
 		"build": "npx tsc",
 		"start": "node dist/index.js",
-		"dev": "nodemon src/index.ts"
+		"dev": "nodemon src/index.ts",
+		"prettier": "npx prettier src --check",
+		"prettier:fix": "npm run prettier -- --write",
+		"clean": "rm -rf dist && rm -rf build && rm -rf node_modules && rm -f package-lock.json && rm -f yarn.lock && rm -f pnpm-lock.yaml"
 	},
 	"keywords": [],
 	"author": "Vadim Kiniabaev",

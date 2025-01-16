@@ -5,6 +5,8 @@ import swaggerUi from 'swagger-ui-express'
 import { swaggerOptions } from './config'
 import { twitRouter } from './feature'
 
+import pool, { pgOptions } from './pool'
+
 const app: Express = express()
 const port = process.env.PORT || 4200
 
@@ -21,6 +23,19 @@ async function main() {
 	app.listen(port, () => {
 		console.log(`Typescript Server running on port ${port}`)
 	})
+
+	pool
+		.connect(pgOptions)
+		.then(() => {
+			const server = app.listen(port, () => {
+				console.log(`Listening on port ${port}!`)
+			})
+
+			server.keepAliveTimeout = 61 * 1000
+		})
+		.catch(err => {
+			console.error(err)
+		})
 }
 
 main()

@@ -7,12 +7,12 @@ export const swaggerOptions = {
 			title: 'Twitter Express API with Swagger',
 			version: '0.1.0',
 			description:
-				'This is a simple Twitter Backend CRUD API application made with Express and documented with Swagger',
+				'This is a simple Twitter Backend CRUD API application made with Express and documented with Swagger'
 		},
 		servers: [
 			{
-				url: `http://localhost:${port}`,
-			},
+				url: `http://localhost:${port}`
+			}
 		],
 		components: {
 			schemas: {
@@ -21,31 +21,31 @@ export const swaggerOptions = {
 					properties: {
 						id: {
 							type: 'integer',
-							example: 1,
+							example: 1
 						},
 						content: {
 							type: 'string',
-							example: 'Hello world!',
+							example: 'Hello world!'
 						},
 						author: {
 							type: 'string',
-							example: 'JohnDoe',
-						},
-					},
+							example: 'JohnDoe'
+						}
+					}
 				},
 				TweetRequest: {
 					type: 'object',
 					properties: {
 						content: {
 							type: 'string',
-							example: 'Hello world!',
+							example: 'Hello world!'
 						},
 						author: {
 							type: 'string',
-							example: 'JohnDoe',
-						},
-					},
-				},
+							example: 'JohnDoe'
+						}
+					}
+				}
 			},
 			parameters: {
 				TweetId: {
@@ -54,9 +54,9 @@ export const swaggerOptions = {
 					required: true,
 					description: 'ID of the tweet',
 					schema: {
-						type: 'integer',
-					},
-				},
+						type: 'integer'
+					}
+				}
 			},
 			requestBodies: {
 				TweetRequest: {
@@ -65,12 +65,12 @@ export const swaggerOptions = {
 					content: {
 						'application/json': {
 							schema: {
-								$ref: '#/components/schemas/TweetRequest',
-							},
-						},
-					},
-				},
-			},
+								$ref: '#/components/schemas/TweetRequest'
+							}
+						}
+					}
+				}
+			}
 		},
 		paths: {
 			'/api/twit': {
@@ -85,19 +85,19 @@ export const swaggerOptions = {
 									schema: {
 										type: 'array',
 										items: {
-											$ref: '#/components/schemas/Tweet',
-										},
-									},
-								},
-							},
-						},
-					},
+											$ref: '#/components/schemas/Tweet'
+										}
+									}
+								}
+							}
+						}
+					}
 				},
 				post: {
 					summary: 'Create a new tweet',
 					tags: ['Twit'],
 					requestBody: {
-						$ref: '#/components/requestBodies/TweetRequest',
+						$ref: '#/components/requestBodies/TweetRequest'
 					},
 					responses: {
 						'201': {
@@ -105,13 +105,13 @@ export const swaggerOptions = {
 							content: {
 								'application/json': {
 									schema: {
-										$ref: '#/components/schemas/Tweet',
-									},
-								},
-							},
-						},
-					},
-				},
+										$ref: '#/components/schemas/Tweet'
+									}
+								}
+							}
+						}
+					}
+				}
 			},
 			'/api/twit/{id}': {
 				get: {
@@ -119,8 +119,8 @@ export const swaggerOptions = {
 					tags: ['Twit'],
 					parameters: [
 						{
-							$ref: '#/components/parameters/TweetId',
-						},
+							$ref: '#/components/parameters/TweetId'
+						}
 					],
 					responses: {
 						'200': {
@@ -128,23 +128,23 @@ export const swaggerOptions = {
 							content: {
 								'application/json': {
 									schema: {
-										$ref: '#/components/schemas/Tweet',
-									},
-								},
-							},
-						},
-					},
+										$ref: '#/components/schemas/Tweet'
+									}
+								}
+							}
+						}
+					}
 				},
 				put: {
 					summary: 'Edit an existing tweet',
 					tags: ['Twit'],
 					parameters: [
 						{
-							$ref: '#/components/parameters/TweetId',
-						},
+							$ref: '#/components/parameters/TweetId'
+						}
 					],
 					requestBody: {
-						$ref: '#/components/requestBodies/TweetRequest',
+						$ref: '#/components/requestBodies/TweetRequest'
 					},
 					responses: {
 						'200': {
@@ -152,29 +152,29 @@ export const swaggerOptions = {
 							content: {
 								'application/json': {
 									schema: {
-										$ref: '#/components/schemas/Tweet',
-									},
-								},
-							},
-						},
-					},
+										$ref: '#/components/schemas/Tweet'
+									}
+								}
+							}
+						}
+					}
 				},
 				delete: {
 					summary: 'Delete a tweet',
 					tags: ['Twit'],
 					parameters: [
 						{
-							$ref: '#/components/parameters/TweetId',
-						},
+							$ref: '#/components/parameters/TweetId'
+						}
 					],
 					responses: {
 						'204': {
-							description: 'Tweet deleted successfully',
-						},
-					},
-				},
-			},
-		},
+							description: 'Tweet deleted successfully'
+						}
+					}
+				}
+			}
+		}
 	},
-	apis: ['./src/**/*.ts'],
+	apis: ['./src/**/*.ts']
 }
