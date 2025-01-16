@@ -4,18 +4,28 @@ import swaggerJsdoc from 'swagger-jsdoc'
 import swaggerUi from 'swagger-ui-express'
 import { swaggerOptions } from './config'
 
-dotenv.config()
-
 const app: Express = express()
 const port = process.env.PORT || 4200
 
-app.get('/', (req: Request, res: Response) => {
-	res.send('Express + Typescript Server tutorial')
-})
+dotenv.config()
 
-app.listen(port, () => {
-	console.log(`Typescript Server running on port ${port}`)
-})
+async function main() {
+	const swaggerDocs = swaggerJsdoc(swaggerOptions)
 
-const swaggerDocs = swaggerJsdoc(swaggerOptions)
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+	app.use(express.json())
+	app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+
+	app.post('/api/twit', (req: Request, res: Response) => {
+		res
+			.json({
+				message: 'Hello, Twitter API!',
+			})
+			.status(200)
+	})
+
+	app.listen(port, () => {
+		console.log(`Typescript Server running on port ${port}`)
+	})
+}
+
+main()
