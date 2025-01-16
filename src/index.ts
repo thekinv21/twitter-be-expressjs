@@ -20,15 +20,11 @@ async function main() {
 
 	app.post('/api/twit', twitRouter)
 
-	app.listen(port, () => {
-		console.log(`Typescript Server running on port ${port}`)
-	})
-
 	pool
 		.connect(pgOptions)
 		.then(() => {
 			const server = app.listen(port, () => {
-				console.log(`Listening on port ${port}!`)
+				console.log(`Application started and Listening on port ${port}!`)
 			})
 
 			server.keepAliveTimeout = 61 * 1000
