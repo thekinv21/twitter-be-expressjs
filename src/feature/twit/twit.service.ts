@@ -1,15 +1,25 @@
-import { TwitCreateDto, TwitUpdateDto } from './dto/twit.request'
+import { CreateTwitDto, UpdateTwitDto } from './dto/twit.request'
 
 export class TwitService {
 	constructor() {}
 
-	async getAll() {}
+	async getAll() {
+		return 'All twits'
+	}
 
-	async getById(id: number) {}
+	async getById(id: number) {
+		return 'Twit by id'
+	}
 
-	async create(createDto: TwitCreateDto) {}
+	async create(createDto: CreateTwitDto) {
+		return 'Twit created successfully'
+	}
 
-	async update(createDto: TwitUpdateDto) {}
+	async update(createDto: UpdateTwitDto) {
+		return 'Twit updated successfully'
+	}
 
-	async delete(id: number) {}
+	async delete(id: number) {
+		return 'Twit deleted successfully'
+	}
 }

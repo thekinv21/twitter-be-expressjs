@@ -1,3 +1,5 @@
+const port = process.env.PORT || 4200
+
 export const swaggerOptions = {
 	definition: {
 		openapi: '3.1.0',
@@ -14,9 +16,9 @@ export const swaggerOptions = {
 		},
 		servers: [
 			{
-				url: 'http://localhost:4200',
+				url: `http://localhost:${port}`,
 			},
 		],
 	},
-	apis: ['./feature/index.js'],
+	apis: ['./src/**/*.ts'],
 }
