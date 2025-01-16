@@ -17,7 +17,7 @@ async function main() {
 	app.use(express.json())
 	app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
-	app.post('/api/twit', twitRouter)
+	app.use('/api/twit', twitRouter)
 
 	pool
 		.connect(pgOptions)
