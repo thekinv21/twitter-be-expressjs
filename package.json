@@ -16,12 +16,14 @@
 		"class-validator": "^0.14.1",
 		"dotenv": "^16.4.7",
 		"express": "^4.21.2",
+		"pg": "^8.13.1",
 		"swagger-jsdoc": "^6.2.8",
 		"swagger-ui-express": "^5.0.1"
 	},
 	"devDependencies": {
 		"@types/express": "^5.0.0",
 		"@types/node": "^22.10.7",
+		"@types/pg": "^8.11.10",
 		"@types/swagger-jsdoc": "^6.0.4",
 		"@types/swagger-ui-express": "^4.1.7",
 		"concurrently": "^9.1.2",
