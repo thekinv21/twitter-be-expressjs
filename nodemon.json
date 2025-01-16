@@ -1,0 +1,15 @@
+{
+	"watch": ["src"],
+	"ext": "ts js json",
+	"ignore": ["node_modules"],
+	"exec": "ts-node src/index.ts",
+	"events": {
+		"start": "echo 'twitter-be starting...'",
+		"restart": "echo 'twitter-be restarting due to changes...'",
+		"crash": "echo 'twitter-be crashed. Waiting for changes...'",
+		"exit": "echo 'twitter-be exited.'"
+	},
+	"env": {
+		"NODE_ENV": "development"
+	}
+}
