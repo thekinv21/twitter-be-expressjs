@@ -1,8 +1,10 @@
-import 'dotenv/config'
+import * as dotenv from 'dotenv'
 import pg from 'pg'
-import { IPgOptions } from './shared'
+import { IPgOption } from './shared'
 
-export const pgOptions: IPgOptions = {
+dotenv.config()
+
+export const pgOptions: IPgOption = {
 	host: process.env.DB_HOST!,
 	port: +process.env.DB_PORT!,
 	database: process.env.DB_NAME!,
@@ -13,13 +15,7 @@ export const pgOptions: IPgOptions = {
 class Pool {
 	private _pool: pg.Pool | null = null
 
-	connect(options: {
-		host: string
-		port: number
-		database: string
-		user: string
-		password: string
-	}) {
+	connect(options: IPgOption) {
 		this._pool = new pg.Pool(options)
 		this._pool.query(
 			`ALTER DATABASE "${process.env.DB_NAME}" SET timezone TO 'Europe/Istanbul';`

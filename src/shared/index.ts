@@ -1,1 +1,1 @@
-export type { IPgOptions } from './types/postgres.types'
+export type { IPgOption } from './types/postgres.types'

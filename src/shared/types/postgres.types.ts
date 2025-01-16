@@ -1,4 +1,4 @@
-export interface IPgOptions {
+export interface IPgOption {
 	host: string
 	port: number
 	database: string
