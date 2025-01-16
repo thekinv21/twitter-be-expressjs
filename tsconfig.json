@@ -3,9 +3,15 @@
 		"target": "ES2022",
 		"module": "CommonJS",
 		"rootDir": "./",
-		"baseUrl": "./",
 		"outDir": "./dist",
 		"esModuleInterop": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"baseUrl": "./",
+		"paths": {
+			"@controller/*": ["src/controller/*"],
+			"@service/*": ["src/service/*"],
+			"@repository/*": ["src/repository/*"],
+			"@utils/*": ["src/utils/*"]
+		}
 	}
 }
