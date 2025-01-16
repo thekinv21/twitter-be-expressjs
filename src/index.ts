@@ -1,8 +1,9 @@
 import * as dotenv from 'dotenv'
-import express, { Express, Request, Response } from 'express'
+import express, { Express } from 'express'
 import swaggerJsdoc from 'swagger-jsdoc'
 import swaggerUi from 'swagger-ui-express'
 import { swaggerOptions } from './config'
+import { twitRouter } from './feature'
 
 const app: Express = express()
 const port = process.env.PORT || 4200
@@ -15,13 +16,7 @@ async function main() {
 	app.use(express.json())
 	app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
-	app.post('/api/twit', (req: Request, res: Response) => {
-		res
-			.json({
-				message: 'Hello, Twitter API!',
-			})
-			.status(200)
-	})
+	app.post('/api/twit', twitRouter)
 
 	app.listen(port, () => {
 		console.log(`Typescript Server running on port ${port}`)

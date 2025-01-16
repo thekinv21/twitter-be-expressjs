@@ -18,5 +18,5 @@ export const swaggerOptions = {
 			},
 		],
 	},
-	apis: ['./routes/*.js'],
+	apis: ['./feature/index.js'],
 }

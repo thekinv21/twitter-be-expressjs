@@ -1,1 +1,6 @@
-export class TwitResponseDto {}
+export class TwitResponseDto {
+	id: number
+	content: string
+	createdAt: Date
+	updatedAt: Date
+}
