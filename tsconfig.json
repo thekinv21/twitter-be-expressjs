@@ -2,15 +2,15 @@
 	"compilerOptions": {
 		"target": "ES2022",
 		"module": "CommonJS",
-		"rootDir": "./",
 		"outDir": "./dist",
+		"rootDir": "./src",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"experimentalDecorators": true,
 		"emitDecoratorMetadata": true,
 		"baseUrl": "./",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["src/*"]
 		}
 	}
 }

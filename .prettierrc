@@ -8,5 +8,6 @@
 	"arrowParens": "avoid",
 	"importOrderSeparation": true,
 	"importOrderSortSpecifiers": true,
+	"importOrder": ["^@/feature/(.*)$", "^@/shared/(.*)$", "^[./]"],
 	"plugins": ["@trivago/prettier-plugin-sort-imports"]
 }
