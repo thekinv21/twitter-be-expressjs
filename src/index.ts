@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client'
 import 'dotenv/config'
 import express, { Express } from 'express'
 import swaggerJsdoc from 'swagger-jsdoc'
@@ -9,10 +8,10 @@ import { twitRouter } from '@/feature'
 
 import { swaggerOptions } from '@/config'
 
+import prisma from '@/prisma'
+
 const app: Express = express()
 const port = process.env.PORT || 4200
-
-export const prisma = new PrismaClient()
 
 async function main() {
 	const swaggerDocs = swaggerJsdoc(swaggerOptions)

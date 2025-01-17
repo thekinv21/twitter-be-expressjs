@@ -1,5 +1,5 @@
 import { CreateTwitDto, UpdateTwitDto } from './dto/twit.request'
-import { prisma } from '@/index'
+import prisma from '@/prisma'
 
 export class TwitService {
 	prisma = prisma
