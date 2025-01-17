@@ -4,33 +4,36 @@ FROM node:20.11.1-alpine
 
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /main
 
 
 # Copy the package.json and package-lock.json
 COPY package*.json ./
 
 
-# Clean Cache and  Install the dependencies
-RUN npm cache clean --force
+# Install the dependencies
 RUN npm install
 
 
-# Copy the source code
-COPY . .
-
-
-# Build the application
-RUN npm run build
+# Copy the prisma directory
+COPY prisma ./prisma
 
 
 # Generate prisma client
 RUN npx prisma generate
 
 
+# Copy the source code
+COPY . .
+
+
 # Expose the port
 EXPOSE 4200
 
 
+# Build the application
+RUN npm run build
+
+
 # Start the application
-CMD [ "npm", "run", "start:migrate:prod" ]
+CMD [ "npm", "run", "dev" ]

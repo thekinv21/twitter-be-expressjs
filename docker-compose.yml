@@ -1,6 +1,6 @@
 services:
   database:
-    container_name: postgresql-database
+    container_name: twitter-db
     image: postgres:latest
     environment:
       POSTGRES_DB: database
@@ -10,7 +10,7 @@ services:
       - '5432:5432'
 
   backend:
-    container_name: twitter-backend
+    container_name: twitter-be
     build: .
     ports:
       - '4200:4200'
