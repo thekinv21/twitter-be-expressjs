@@ -1,16 +1,16 @@
-import { swaggerOptions } from '@/config'
-import { twitRouter } from '@/feature'
 import { PrismaClient } from '@prisma/client'
-import * as dotenv from 'dotenv'
+import 'dotenv/config'
 import express, { Express } from 'express'
 import swaggerJsdoc from 'swagger-jsdoc'
 import swaggerUi from 'swagger-ui-express'
 import 'tsconfig-paths/register'
 
+import { twitRouter } from '@/feature'
+
+import { swaggerOptions } from '@/config'
+
 const app: Express = express()
 const port = process.env.PORT || 4200
-
-dotenv.config()
 
 export const prisma = new PrismaClient()
 
