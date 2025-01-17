@@ -16,14 +16,13 @@ const port = process.env.PORT || 4200
 async function main() {
 	const swaggerDocs = swaggerJsdoc(swaggerOptions)
 
-	app.use(express.json())
-	app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
-
-	app.listen(port, () => {
-		console.log(`ExpressJs Server is running on port ${port}`)
-	})
-
-	app.use('/api/twit', twitRouter)
+	app
+		.use(express.json())
+		.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+		.use('/api/twit', twitRouter)
+		.listen(port, () => {
+			console.log(`ExpressJs Server is running on port ${port}`)
+		})
 }
 
 main()
