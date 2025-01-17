@@ -1,0 +1,20 @@
+services:
+  database:
+    container_name: postgresql-database
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: database
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+    ports:
+      - '5432:5432'
+
+  backend:
+    container_name: twitter-backend
+    build: .
+    ports:
+      - '4200:4200'
+    depends_on:
+      - database
+    env_file:
+      - .env
