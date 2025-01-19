@@ -17,7 +17,7 @@ export enum HttpCodeEnum {
 	SERVICE_UNAVAILABLE = 503
 }
 
-export enum HttpMessageEnum {
+export enum HttpCodeMessageEnum {
 	OK = 'OK',
 	CREATED = 'CREATED',
 	ACCEPTED = 'ACCEPTED',
